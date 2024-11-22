@@ -16,6 +16,6 @@ router.use("/insumos", insumosRouter);
 
 app.use("/api", router);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
