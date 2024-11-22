@@ -20,7 +20,7 @@ FastBurger é um projeto que visa facilitar o processo de gerenciamento de pedid
 
 * Henrique Luiz Fontes da Silva
 * Leonardo Leonhardt Bispo
-* Lucas Gabriel Pimenta Moreira 
+* Lucas Gabriel Pimenta Moreira
 * Paulo Henrique Almeida Ferreira
 * Ricardo Alves Coelho
 

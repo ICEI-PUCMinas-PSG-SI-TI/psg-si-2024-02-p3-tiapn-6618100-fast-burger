@@ -4,266 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FastBurger | Controle de Insumos</title>
+
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/pages/insumos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-      :root {
-        --bg-color: #f5f7fb;
-        --bg-primary: #ed2a39;
-        --bg-primary-light: #e64f5c;
-        --text-primary: #ffffff;
-        --text-primary-light: #d6d6d6;
-        --bg-secondary: #ffffff;
-        --text-secondary: #666666;
-        --bg-secondary-light: #f5f5f5;
-        --text-secondary-light: #808080;
-        --b-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-      }
-
-      html {
-        background-color: var(--bg-color);
-      }
-
-      .wrapper {
-        width: 100%;
-        max-width: 1200px;
-        height: 100vh;
-        /* background-color: rgba(255, 0, 0, 0.192); */
-        margin: 0 auto;
-        padding: 30px 10px;
-      }
-
-      .wrapper > * {
-        width: 100%;
-      }
-
-      .logo {
-        width: 100px;
-      }
-
-      .main-header {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin-bottom: 40px;
-      }
-
-      button {
-        width: fit-content;
-        padding: 5px 15px;
-        border-radius: 14px;
-        border: 0;
-        outline: 0;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.2s all;
-        box-shadow: var(--b-shadow);
-      }
-
-      button.primary {
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-      }
-
-      button.secondary {
-        background-color: var(--bg-secondary);
-        color: var(--text-secondary);
-      }
-
-      button.primary:hover {
-        background-color: var(--bg-primary-light);
-        color: var(--text-primary-light);
-      }
-
-      button.secondary:hover {
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-      }
-
-      button.circle {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        padding: 0;
-      }
-
-      .main-nav {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
-      }
-
-      .main-nav-buttons > :not(:last-child) {
-        margin-right: 10px;
-      }
-
-      .cards-container {
-        width: 100%;
-        /* height: calc(100vh - 290px); */
-        /* background-color: rgba(0, 0, 255, 0.603); */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        column-gap: 5px;
-        row-gap: 25px;
-      }
-
-      .card {
-        width: 250px;
-        height: 300px;
-        border-radius: 14px;
-        border: 1px solid #f3fef3;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .card-header {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        text-align: center;
-        overflow: visible;
-
-        & img {
-          position: relative;
-          width: 150px;
-          margin-top: -20px;
-          z-index: 1;
-          margin-bottom: 10px;
-        }
-
-        & h2 {
-          font-size: 16px;
-          color: var(--text-secondary);
-          font-weight: 600;
-        }
-      }
-
-      .card-footer {
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: flex-end;
-        gap: 2px;
-        padding-right: 15px;
-
-        & span {
-          margin-left: 10px;
-          font-size: 13px;
-          font-weight: 600;
-          color: var(--text-secondary);
-        }
-      }
-
-      .modal-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-        overflow: hidden;
-        display: none;
-        justify-content: center;
-        align-items: center;
-
-        &.open {
-          display: flex;
-        }
-      }
-
-      .modal {
-        max-width: 600px;
-        width: 100%;
-        height: 500px;
-        background-color: white;
-        border-radius: 14px;
-        padding: 15px 25px;
-        display: flex;
-        flex-direction: column;
-
-        & > header,
-        & > footer {
-          width: 100%;
-          height: 40px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          & > h2 {
-            font-size: 22px;
-            font-weight: 500;
-            color: var(--text-secondary);
-          }
-        }
-
-        & > hr {
-          border: 0;
-          height: 2px;
-          margin: 5px 0;
-          background-color: #ccc;
-        }
-
-        & > main {
-          width: 100%;
-          height: 100%;
-          padding: 10px 0;
-        }
-
-        & .input-wrapper {
-          width: 100%;
-          margin-bottom: 5px;
-          display: flex;
-          flex-direction: column;
-
-          & input,
-          & select {
-            width: 100%;
-            border: 1px solid var(--text-primary-light);
-            background-color: white;
-            height: 30px;
-            border-radius: 4px;
-            padding: 0 10px;
-            outline: none;
-            order: 2;
-            transition: 0.3s all;
-          }
-
-          & label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #969696;
-            order: 1;
-          }
-
-          & input:focus,
-          & select:focus {
-            border-color: var(--bg-primary);
-          }
-
-          & input:focus ~ label,
-          & select:focus ~ label {
-            color: var(--bg-primary);
-          }
-        }
-      }
-    </style>
   </head>
+
   <body>
     <div class="wrapper">
       <header class="main-header">
@@ -277,6 +28,7 @@
           </div>
         </nav>
       </header>
+
       <main>
         <div class="cards-container">
           <div class="card">
@@ -292,6 +44,7 @@
           </div>
         </div>
       </main>
+
       <div class="modal-wrapper open">
         <div class="modal">
           <header>
@@ -327,22 +80,6 @@
       </div>
     </div>
   </body>
-  <script>
-    class Modal {
-      #elemento;
 
-      constructor(elemento) {
-        this.#elemento = elemento;
-        this.#elemento.remove();
-      }
-
-      abrir() {
-        this.#elemento.classList.add("open");
-      }
-
-      fechar() {
-        this.#elemento.classList.remove("open");
-      }
-    }
-  </script>
+  <script src="./assets/js/pages/insumos.js"></script>
 </html>

@@ -1,14 +1,13 @@
-### 3.3.2 Processo 2 – NOME DO PROCESSO
+### 3.3.1 Processo 1 – NOME DO PROCESSO
 
-_Apresente aqui o nome e as oportunidades de melhoria para o processo 2. 
-Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN._
+_Apresente aqui o nome e as oportunidades de melhoria para o processo 1. 
+Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN._
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](../images/process.png "Modelo BPMN do Processo 2.")
-
+![Exemplo de um Modelo BPMN do PROCESSO 1](../images/process.png "Modelo BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 
-_Descreva aqui cada uma das propriedades das atividades do processo 2. 
+_Descreva aqui cada uma das propriedades das atividades do processo 1. 
 Devem estar relacionadas com o modelo de processo apresentado anteriormente._
 
 _Os tipos de dados a serem utilizados são:_
@@ -36,6 +35,7 @@ _* **Arquivo** - campo de upload de documento_
 _* **Link** - campo que armazena uma URL_
 
 _* **Tabela** - campo formado por uma matriz de valores_
+
 
 **Nome da atividade 1**
 

@@ -1,91 +1,97 @@
 # Especificações do Projeto
 
 <span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+# Especificações do Projeto
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
+Este documento detalha as especificações do projeto FastBurger, incluindo personas, histórias de usuário, requisitos funcionais e não funcionais, e restrições.  Para a elicitação de requisitos, foram utilizadas as técnicas de Personas, Histórias de Usuário e priorização MoSCoW.
 
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+Para o FastBurger, identificamos as seguintes personas:
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+**1. Cliente Casual (Ana):** Ana, 28 anos, trabalha em escritório e gosta de sair para almoçar ou jantar com amigos. Valoriza praticidade, rapidez no atendimento e opções de comida saborosa e de qualidade. Usa frequentemente aplicativos de delivery e procura por promoções. É avessa a interfaces complexas e prefere experiências simples e intuitivas.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+**2. Cliente Frequentador (João):** João, 35 anos, trabalha em casa e costuma pedir lanches online pelo menos 2 vezes por semana.  Valoriza a consistência da qualidade, o sabor e a variedade do cardápio. Gosta de ter um histórico de seus pedidos e formas de pagamento salvas para facilitar novas compras. Busca por um sistema rápido e eficiente.
 
-## Histórias de Usuários
+**3. Gerente (Maria):** Maria, 45 anos, é a gerente de uma hamburgueria. Precisa de um sistema que lhe forneça controle total do estoque, gestão de funcionários e relatórios de vendas. Valoriza informações precisas e em tempo real, que ajudem a tomar decisões estratégicas sobre compras de insumos, cardápio e equipe. Busca otimização do tempo e redução de erros.
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+**4. Cozinheiro (Pedro):** Pedro, 22 anos, trabalha na cozinha da hamburgueria. Necessita de um sistema que apresente os pedidos de forma clara e eficiente, sem ambiguidades, para que possa preparar os itens com agilidade e precisão.  Busca reduzir o tempo de preparação e evitar erros na execução dos pedidos.
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+## Histórias de Usuário
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente e Cozinheiro) para melhor organização:
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
+**Contexto: Cliente**
+
+| EU COMO...                               | QUERO/PRECISO...                                           | PARA...                                                                 |
+|------------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------|
+| Cliente Casual (Ana)                      | Acessar o cardápio de forma simples e intuitiva.             | Escolher meu pedido rapidamente.                                       |
+| Cliente Casual (Ana)                      | Fazer meu pedido com facilidade.                             | Receber meu lanche rapidamente e sem problemas.                         |
+| Cliente Casual (Ana)                      | Pagar meu pedido de forma segura e prática (cartão ou dinheiro).| Finalizar a compra de forma rápida e segura.                            |
+| Cliente Frequentador (João)               | Salvar meus dados de endereço e pagamento para pedidos futuros. | Agilizar o processo de pedidos futuros.                                  |
+| Cliente Frequentador (João)               | Visualizar o histórico dos meus pedidos.                     | Acompanhar os pedidos que realizei anteriormente e avaliar a frequência. |
+
+
+**Contexto: Gerente**
+
+| EU COMO...                 | QUERO/PRECISO...                                                    | PARA...                                                                           |
+|-----------------------------|------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Gerente (Maria)             | Controlar o estoque de insumos em tempo real.                     | Evitar desperdícios, garantir a disponibilidade de ingredientes e otimizar compras. |
+| Gerente (Maria)             | Gerenciar os pedidos e verificar o andamento de cada um.           | Monitorar as operações, identificar possíveis problemas e otimizar o atendimento.   |
+| Gerente (Maria)             | Acessar relatórios de vendas e controle de estoque.                 | Analisar o desempenho do negócio, identificar tendências e tomar decisões estratégicas. |
+| Gerente (Maria)             | Gerenciar as informações do cardápio (adicionar, remover ou alterar itens). | Manter o cardápio atualizado e atrativo para os clientes.                           |
+
+
+**Contexto: Cozinheiro**
+
+| EU COMO...                  | QUERO/PRECISO...                                         | PARA...                                                                  |
+|------------------------------|-------------------------------------------------------------|------------------------------------------------------------------------|
+| Cozinheiro (Pedro)           | Visualizar os pedidos de forma clara e organizada.          | Preparar os pedidos de forma eficiente e precisa, evitando erros.             |
+| Cozinheiro (Pedro)           | Receber notificações sobre novos pedidos.                   | Manter-se atualizado sobre os pedidos pendentes e evitar atrasos na entrega. |
 
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+**Priorização MoSCoW:** Foi utilizada a técnica MoSCoW para priorizar os requisitos.  Requisitos *Must have* são essenciais para o funcionamento básico do sistema.  *Should have* são importantes, mas não críticos para a primeira versão. *Could have* são desejáveis, mas podem ser adiados.  *Won't have* são requisitos que não serão implementados nesta versão.
+
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+| ID    | Descrição do Requisito                                  | Prioridade | MoSCoW |
+|------|----------------------------------------------------------|------------|---------|
+| RF-001| Cadastro de novos itens no cardápio.                   | Alta        | Must    |
+| RF-002| Realizar pedidos online.                               | Alta        | Must    |
+| RF-003| Sistema de pagamento integrado (cartão e dinheiro).    | Alta        | Must    |
+| RF-004| Controle de estoque de ingredientes.                    | Alta        | Must    |
+| RF-005| Histórico de pedidos para clientes.                      | Média       | Should  |
+| RF-006| Relatórios gerenciais (vendas e estoque).               | Média       | Should  |
+| RF-007| Gerenciamento de usuários (acesso diferenciado).       | Média       | Should  |
+| RF-008| Notificações em tempo real para cozinheiros e atendentes.| Média       | Should  |
+| RF-009| Integração com sistemas de delivery (futuro).           | Baixa       | Could   |
+| RF-010| Sistema de fidelidade para clientes.                     | Baixa       | Could   |
 
-### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+### Requisitos Não Funcionais
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
+| ID     | Descrição do Requisito                                   | Prioridade | MoSCoW |
+|-------|-----------------------------------------------------------|------------|---------|
+| RNF-001| Interface responsiva para dispositivos móveis.            | Alta        | Must    |
+| RNF-002| Tempo de resposta do sistema inferior a 3 segundos.     | Alta        | Must    |
+| RNF-003| Segurança dos dados dos clientes e do sistema.           | Alta        | Must    |
+| RNF-004| Disponibilidade do sistema de 99.9%                      | Alta        | Must    |
+| RNF-005| Escalabilidade para atender ao crescimento do negócio.   | Média       | Should  |
+| RNF-006| Facilidade de uso e navegação intuitiva.                 | Média       | Should  |
+| RNF-007| Documentação completa para usuários e administradores. | Baixa       | Could   |
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+| ID | Restrição                                                 |
+|---|----------------------------------------------------------|
+| 01 | O projeto deverá ser entregue até o final do semestre.      |
+| 02 | O sistema não deve depender de um módulo de backend na primeira versão. |
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+Lembre-se que este documento é um exemplo e deve ser adaptado para refletir especificamente as necessidades do seu projeto FastBurger.  As prioridades e classificação MoSCoW podem ser ajustadas conforme a avaliação da equipe.
