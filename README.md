@@ -30,7 +30,9 @@ FastBurger é um projeto que visa facilitar o processo de gerenciamento de pedid
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+###Necessário: NodeJS e PostgreSQL.
+1. Rode npm install, para instalar as dependências.
+2. Rode npm start ou npm run dev, caso queria iniciar em modo de desenvolvedor.
 
 # Documentação
 
