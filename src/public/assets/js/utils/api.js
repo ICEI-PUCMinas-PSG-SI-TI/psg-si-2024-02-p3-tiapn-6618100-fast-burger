@@ -1,6 +1,6 @@
 function API() {
-  const { protocol, hostname } = window.location;
-  const API_URL = `${protocol}://${hostname}/api`;
+  const { protocol, hostname, port } = window.location;
+  const API_URL = `${protocol}//${hostname}${port ? `:${port}` : ""}/api`;
 
   this.get = async (endpoint) => {
     const urlRequisicao = API_URL + "/" + endpoint;
@@ -14,9 +14,9 @@ function API() {
           "Content-Type": "application/json",
         },
       });
-      const dados = await res.json();
+      const { data: dados } = await res.json();
 
-      return dados;
+      return { status: res.status, dados };
     } catch (e) {
       return false;
     }
@@ -34,9 +34,9 @@ function API() {
         },
         body: JSON.stringify(body),
       });
-      const dados = await res.json();
+      const { data: dados } = await res.json();
 
-      return dados;
+      return { status: res.status, dados };
     } catch (e) {
       return false;
     }
@@ -54,9 +54,9 @@ function API() {
         },
         body: JSON.stringify(body),
       });
-      const dados = await res.json();
+      const { data: dados } = await res.json();
 
-      return dados;
+      return { status: res.status, dados };
     } catch (e) {
       return false;
     }
@@ -74,9 +74,9 @@ function API() {
         },
         body: JSON.stringify(body),
       });
-      const dados = await res.json();
+      const { data: dados } = await res.json();
 
-      return dados;
+      return { status: res.status, dados };
     } catch (e) {
       return false;
     }
@@ -86,10 +86,10 @@ function API() {
     const urlRequisicao = API_URL + "/" + endpoint;
 
     try {
-      await fetch(urlRequisicao, { method: "DELETE" });
-      return true;
+      const res = await fetch(urlRequisicao, { method: "DELETE" });
+      return { status: res.status };
     } catch (e) {
-      return false;
+      return { status: res.status };
     }
   };
 }

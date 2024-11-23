@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -115,8 +119,8 @@
         /* background-color: rgba(0, 0, 255, 0.603); */
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        column-gap: 5px;
+        justify-content: flex-start;
+        column-gap: 20px;
         row-gap: 25px;
       }
 
@@ -141,7 +145,7 @@
         & img {
           position: relative;
           width: 150px;
-          margin-top: -20px;
+          margin-top: -30px;
           z-index: 1;
           margin-bottom: 10px;
         }
@@ -157,9 +161,9 @@
         width: 100%;
         height: 50px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         gap: 2px;
-        padding-right: 15px;
+        padding: 0 15px;
 
         & span {
           margin-left: 10px;
@@ -262,6 +266,36 @@
           }
         }
       }
+
+      .loading {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        border-top: 5px solid var(--bg-primary);
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid var(--bg-primary);
+        border-right: 5px solid transparent;
+
+        animation: loading 1s linear infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .d-none {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -273,76 +307,234 @@
             <button class="primary">Insumos</button>
           </div>
           <div class="main-nav-buttons">
-            <button class="secondary">Cadastrar</button>
+            <button class="secondary" id="btnCadastro">Cadastrar</button>
           </div>
         </nav>
       </header>
       <main>
         <div class="cards-container">
-          <div class="card">
+          <div class="card d-none" data-id="card">
             <header class="card-header">
-              <img src="assets/images/svg/Paozinho.svg" alt="" />
-              <h2>Pão de hambúrguer</h2>
+              <img src="$imagem$" alt="" />
+              <h2>$nome$</h2>
             </header>
             <footer class="card-footer">
-              <button class="circle primary">-</button>
-              <button class="circle primary">+</button>
-              <span>0</span>
+              <button class="circle primary" onclick="remover('$id$')">
+                <i class="bx bxs-trash"></i>
+              </button>
+              <div>
+                <button class="circle primary" onclick="diminuir('$id$')">
+                  -
+                </button>
+                <button class="circle primary" onclick="aumentar('$id$')">
+                  +
+                </button>
+                <span>$quantidade$</span>
+              </div>
             </footer>
           </div>
         </div>
       </main>
-      <div class="modal-wrapper open">
+      <div class="modal-wrapper" id="cadastro-insumo">
         <div class="modal">
           <header>
             <h2>Cadastro de Insumo</h2>
           </header>
           <hr />
           <main>
-            <form>
+            <form id="cadastroInsumo" autocomplete="off">
               <div class="input-wrapper">
-                <input type="text" name="nome" />
+                <input type="text" name="nome" required />
                 <label for="nome">Nome</label>
               </div>
               <div class="input-wrapper">
-                <select name="categoria">
+                <select name="categoria" required>
                   <option value="" disabled selected>
                     Selecione uma opção
                   </option>
                   <option value="Vegetais">Vegetais</option>
                   <option value="Carnes">Carnes</option>
+                  <option value="Carnes">Pães</option>
+                  <option value="Carnes">Molhos</option>
                 </select>
                 <label for="categoria">Categoria</label>
+              </div>
+              <div class="input-wrapper">
+                <input type="file" name="imagem" required />
+                <label for="nome">Imagem</label>
               </div>
             </form>
           </main>
           <hr />
           <footer>
             <div style="margin-left: auto">
-              <button class="secondary" data>Fechar</button>
-              <button class="primary">Salvar</button>
+              <button class="secondary" data-button="close">Fechar</button>
+              <button class="primary" form="cadastroInsumo">Salvar</button>
             </div>
           </footer>
         </div>
       </div>
+      <div class="modal-wrapper" id="loading">
+        <div class="loading"></div>
+      </div>
     </div>
   </body>
+  <script src="assets/js/utils/api.js"></script>
   <script>
     class Modal {
       #elemento;
+      #formulario;
+      #submitHandler;
 
-      constructor(elemento) {
-        this.#elemento = elemento;
+      constructor(seletor) {
+        this.#elemento = document.getElementById(seletor);
+        this.#formulario = this.#elemento.querySelector("form");
         this.#elemento.remove();
+
+        this.#elemento
+          .querySelector('[data-button="close"]')
+          ?.addEventListener("click", () => {
+            this.fechar();
+          });
+
+        this.#formulario?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          this.#submitHandler?.call(this, this.#formulario);
+        });
+
+        this.limparFormulario();
       }
 
       abrir() {
+        document.body.append(this.#elemento);
         this.#elemento.classList.add("open");
       }
 
       fechar() {
         this.#elemento.classList.remove("open");
+        document.body.removeChild(this.#elemento);
+      }
+
+      limparFormulario() {
+        this.#formulario?.reset();
+      }
+
+      onFormularioSubmit(cb) {
+        this.#submitHandler = cb;
       }
     }
+
+    class Dados {
+      #container;
+      #elemento;
+
+      constructor(seletor) {
+        this.#elemento = document.querySelector(seletor);
+        this.#container = this.#elemento.parentElement;
+
+        this.#elemento.remove();
+        this.#elemento.classList.remove("d-none");
+      }
+
+      renderizar(dados) {
+        this.#container.innerHTML = "";
+
+        dados.forEach((dado) => {
+          const div = document.createElement("div");
+          const clone = this.#elemento.cloneNode(true);
+
+          div.appendChild(clone);
+
+          for (const prop in dado) {
+            div.innerHTML = div.innerHTML.replaceAll(`$${prop}$`, dado[prop]);
+          }
+
+          this.#container.appendChild(div.querySelector("*"));
+          div.remove();
+        });
+      }
+    }
+
+    const modalCadastroInsumo = new Modal("cadastro-insumo");
+    const modalCarregamento = new Modal("loading");
+
+    const insumos = new Dados('[data-id="card"]');
+
+    const converterParaBase64 = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () =>
+          resolve(
+            reader.result.replace(/^data:image\/(png|jpg|jpeg);base64,/, "")
+          );
+        reader.onerror = reject;
+      });
+
+    async function carregarInsumos() {
+      modalCarregamento.abrir();
+
+      const response = await api.get("insumos");
+
+      if (response.status == 200) insumos.renderizar(response.dados);
+
+      modalCarregamento.fechar();
+    }
+
+    modalCadastroInsumo.onFormularioSubmit(async (form) => {
+      const formdata = new FormData(form);
+      const dados = Object.fromEntries(formdata);
+
+      for (const prop in dados) {
+        if (dados[prop] instanceof File) {
+          dados[prop] = await converterParaBase64(dados[prop]);
+        }
+      }
+
+      modalCarregamento.abrir();
+
+      const response = await api.post("insumos", dados);
+
+      await carregarInsumos();
+
+      modalCadastroInsumo.limparFormulario();
+      modalCadastroInsumo.fechar();
+    });
+
+    async function remover(id) {
+      modalCarregamento.abrir();
+
+      const response = await api.delete("insumos/" + id);
+
+      modalCarregamento.fechar();
+
+      carregarInsumos();
+    }
+
+    async function aumentar(id) {
+      modalCarregamento.abrir();
+
+      const response = await api.get("insumos/" + id + "/aumentar");
+
+      modalCarregamento.fechar();
+
+      carregarInsumos();
+    }
+
+    async function diminuir(id) {
+      modalCarregamento.abrir();
+
+      const response = await api.get("insumos/" + id + "/diminuir");
+
+      modalCarregamento.fechar();
+
+      carregarInsumos();
+    }
+
+    document.getElementById("btnCadastro").addEventListener("click", () => {
+      modalCadastroInsumo.abrir();
+    });
+
+    carregarInsumos();
   </script>
 </html>
