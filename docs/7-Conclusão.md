@@ -19,7 +19,6 @@ O projeto FastBurger resultou no desenvolvimento de uma aplicação web que visa
 * **Escalabilidade:**  Para hamburguerias de grande porte, o sistema pode necessitar de ajustes para garantir sua escalabilidade.  A capacidade de lidar com um grande volume de pedidos deve ser avaliada.
 * **Manutenção e atualização:**  A aplicação requer manutenção contínua para garantir segurança, correção de bugs e adaptação a novas tecnologias.  A atualização contínua do sistema garante segurança e performance.
 
-
 **Sugestões para novas linhas de estudo:**
 
 * **Integração com sistemas de delivery:**  Integrar o sistema com plataformas de delivery como iFood e Uber Eats para automatizar a gestão de pedidos online.

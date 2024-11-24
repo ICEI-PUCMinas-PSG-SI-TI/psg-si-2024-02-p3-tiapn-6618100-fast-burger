@@ -59,5 +59,4 @@ Permite ao gerente solicitar a reposição de um ou mais insumos, indicando a qu
 
 **(Adicione seções semelhantes para outras telas e processos, como a tela de gestão de cardápios, tela de relatórios, etc., com imagens representativas e descrições detalhadas de cada uma.  Lembre-se de que todas as telas devem ser coerentes com o design proposto e funcionarem de forma intuitiva para o usuário.)**
 
-
 **Observações:**  Substitua os placeholders `[`Tela ...`](images/)` pelas imagens reais dos seus protótipos.  Este documento descreve a interface, e não o código.  É importante que as imagens estejam em alta resolução e representem fielmente o design final da interface do usuário.

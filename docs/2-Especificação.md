@@ -33,7 +33,6 @@ As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente 
 | Cliente Frequentador (João)               | Salvar meus dados de endereço e pagamento para pedidos futuros. | Agilizar o processo de pedidos futuros.                                  |
 | Cliente Frequentador (João)               | Visualizar o histórico dos meus pedidos.                     | Acompanhar os pedidos que realizei anteriormente e avaliar a frequência. |
 
-
 **Contexto: Gerente**
 
 | EU COMO...                 | QUERO/PRECISO...                                                    | PARA...                                                                           |
@@ -43,7 +42,6 @@ As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente 
 | Gerente (Maria)             | Acessar relatórios de vendas e controle de estoque.                 | Analisar o desempenho do negócio, identificar tendências e tomar decisões estratégicas. |
 | Gerente (Maria)             | Gerenciar as informações do cardápio (adicionar, remover ou alterar itens). | Manter o cardápio atualizado e atrativo para os clientes.                           |
 
-
 **Contexto: Cozinheiro**
 
 | EU COMO...                  | QUERO/PRECISO...                                         | PARA...                                                                  |
@@ -51,11 +49,9 @@ As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente 
 | Cozinheiro (Pedro)           | Visualizar os pedidos de forma clara e organizada.          | Preparar os pedidos de forma eficiente e precisa, evitando erros.             |
 | Cozinheiro (Pedro)           | Receber notificações sobre novos pedidos.                   | Manter-se atualizado sobre os pedidos pendentes e evitar atrasos na entrega. |
 
-
 ## Requisitos
 
 **Priorização MoSCoW:** Foi utilizada a técnica MoSCoW para priorizar os requisitos.  Requisitos *Must have* são essenciais para o funcionamento básico do sistema.  *Should have* são importantes, mas não críticos para a primeira versão. *Could have* são desejáveis, mas podem ser adiados.  *Won't have* são requisitos que não serão implementados nesta versão.
-
 
 ### Requisitos Funcionais
 
@@ -72,7 +68,6 @@ As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente 
 | RF-009| Integração com sistemas de delivery (futuro).           | Baixa       | Could   |
 | RF-010| Sistema de fidelidade para clientes.                     | Baixa       | Could   |
 
-
 ### Requisitos Não Funcionais
 
 | ID     | Descrição do Requisito                                   | Prioridade | MoSCoW |
@@ -85,13 +80,9 @@ As histórias de usuário abaixo foram agrupadas por contexto (Cliente, Gerente 
 | RNF-006| Facilidade de uso e navegação intuitiva.                 | Média       | Should  |
 | RNF-007| Documentação completa para usuários e administradores. | Baixa       | Could   |
 
-
 ## Restrições
 
 | ID | Restrição                                                 |
 |---|----------------------------------------------------------|
 | 01 | O projeto deverá ser entregue até o final do semestre.      |
 | 02 | O sistema não deve depender de um módulo de backend na primeira versão. |
-
-
-Lembre-se que este documento é um exemplo e deve ser adaptado para refletir especificamente as necessidades do seu projeto FastBurger.  As prioridades e classificação MoSCoW podem ser ajustadas conforme a avaliação da equipe.

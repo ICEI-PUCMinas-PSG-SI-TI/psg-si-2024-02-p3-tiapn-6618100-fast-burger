@@ -60,13 +60,9 @@ Atualizado em: [Data]
 
 **....**
 
-
 **Legenda:**
 
 * ✔️: Concluído
 * 📝: Em andamento
 * ⌛: Atrasado
 * ❌: Não iniciado
-
-
-Lembre-se: Este é um exemplo.  A equipe deve definir suas próprias tarefas, prazos e responsabilidades, utilizando uma ferramenta de gestão de projetos para um melhor acompanhamento e colaboração. A atualização regular deste quadro é crucial para o sucesso do projeto.

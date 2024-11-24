@@ -35,7 +35,6 @@ O contexto é de pequenas e médias hamburguerias que buscam uma solução tecno
 
 A justificativa para este projeto reside na necessidade de otimizar processos de trabalho e na crescente necessidade de automatização em diversos setores da indústria alimentícia. A solução proposta visa melhorar a experiência do cliente, reduzir custos operacionais através da diminuição de erros e desperdícios, e aumentar a eficiência do negócio, potencializando o crescimento financeiro. O projeto se justifica pela necessidade de um sistema personalizado e integrado que atenda às necessidades específicas das hamburguerias, algo que as soluções genéricas de mercado não oferecem. A integração de todos os processos relevantes numa única plataforma resultará num ganho significativo em produtividade e precisão.
 
-
 **Público-Alvo**
 
 O público-alvo deste projeto compreende os seguintes perfis:
