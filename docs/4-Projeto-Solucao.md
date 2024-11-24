@@ -33,7 +33,6 @@ São protótipos usados em design de interface para sugerir a estrutura de um si
 > - [Axure](https://www.axure.com/edu) (Licença Educacional)
 > - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
 
-
 ## Diagrama de Classes
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.

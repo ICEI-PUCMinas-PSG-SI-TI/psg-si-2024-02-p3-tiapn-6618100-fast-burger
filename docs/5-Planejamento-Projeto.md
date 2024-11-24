@@ -1,60 +1,68 @@
-# 5. Planejamento do Projeto
+## 5. Planejamento do Projeto
 
-> Aqui será feito o gerenciamento das tarefas de implementação do projeto.
+### 5.1. Divisão de Papéis
 
-## 5.1. Divisão de Papéis
+A equipe utilizará um esquema rotacional de papéis em cada sprint, buscando garantir que cada membro tenha experiência em diferentes áreas do desenvolvimento.  Considerando a complexidade do projeto e a necessidade de acompanhamento contínuo, o Scrum Master será fixo em cada Sprint.
 
-> Apresente a divisão de papéis entre os membros do grupo em cada sprint. O desejável é que, em cada sprint, o aluno assuma papéis diferentes na disciplina. Siga o modelo do exemplo abaixo:
+**Sprint 1**
 
-### Sprint 1
-- _Scrum master_: AlunaX
-- Protótipos: AlunoY
-- Testes: AlunoK
-- Documentação: AlunaZ
-
-### Sprint 2
-- _Scrum master_: AlunaY
-- Desenvolvedor _front-end_: AlunoX
-- Desenvolvedor _back-end_: AlunoK
-- Testes: AlunaZ
-
-## 5.1. Quadro de tarefas
-
-> Apresente a divisão de tarefas entre os membros do grupo e o acompanhamento da execução, conforme exemplo abaixo.
-
-## Sprint 1
-
-Atualizado em: 21/04/2024
-
-| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
-| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Introdução | 01/02/2024     | 07/02/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | Objetivos    | 03/02/2024     | 10/02/2024 | 📝    |                 |
-| AlunoY        | Histórias de usuário  | 01/01/2024     | 07/01/2005 | ⌛     |                 |
-| AlunoK        | Personas 1  |    01/01/2024        | 12/02/2005 | ❌    |       |
-
-## Sprint 2
-
-Atualizado em: 21/04/2024
-
-| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
-| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Home-Page        | 01/02/2024     | 07/03/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | CSS Unificado    | 03/02/2024     | 10/03/2024 | 📝    |                 |
-| AlunoY        | Página de login  | 01/02/2024     | 07/03/2024 | ⌛     |                 |
-| AlunoK        | Script de login  |  01/01/2024    | 12/03/2024 | ❌    |       |
+* **Scrum Master:** Ricardo Alves Coelho
+* **Design e Protótipos:** Leonardo Leonhardt Bispo & Paulo Henrique Almeida Ferreira
+* **Backend (Planejamento e Arquitetura):** Lucas Gabriel Pimenta Moreira
+* **Frontend (Planejamento e Arquitetura):** Henrique Luiz Fontes da Silva
+* **Documentação e Testes (Planejamento):** Todos
 
 
-Legenda:
-- ✔️: terminado
-- 📝: em execução
-- ⌛: atrasado
-- ❌: não iniciado
+**Sprint 2**
+
+* **Scrum Master:** Ricardo Alves Coelho
+* **Design e Protótipos (Implementação):** Paulo Henrique Almeida Ferreira
+* **Frontend (Implementação):** Henrique Luiz Fontes da Silva
+* **Backend (Implementação):** Lucas Gabriel Pimenta Moreira
+* **Testes e Documentação (Implementação):** Leonardo Leonhardt Bispo & Todos
+
+**Sprint 3 (e subsequentes - adaptáveis à necessidade):** A distribuição de papéis será adaptada, considerando as atividades concluídas e as pendentes, buscando garantir a experiência e o aprendizado em todas as áreas e equilibrar a carga de trabalho entre os membros da equipe.  O Scrum Master permanece fixo.
 
 
+### 5.2. Quadro de tarefas
 
-## Links Úteis
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+Os quadros de tarefas a seguir são exemplos e devem ser atualizados regularmente com o progresso real do projeto.  As datas são ilustrativas e precisam ser ajustadas conforme o planejamento da equipe.  Ferramentas como Jira ou Trello podem ser usadas para gestão das tarefas.
 
 
+**Sprint 1**
+
+Atualizado em: [Data]
+
+| Responsável                  | Tarefa/Requisito                               | Iniciado em    | Prazo      | Status  | Terminado em    | Observações                                   |
+|-------------------------------|-------------------------------------------------|-----------------|------------|---------|-----------------|------------------------------------------------|
+| Ricardo Alves Coelho          | Planejamento da Sprint 1                        | [Data]          | [Data]     | ✔️      | [Data]          |                                                |
+| Leonardo Leonhardt Bispo      | Design e protótipos das telas principais (Login, Cardápio) | [Data]          | [Data]     | ✔️      | [Data]          | Utilizar Figma                               |
+| Paulo Henrique Almeida Ferreira | Design e protótipos das telas principais (Pedidos, Pagamentos) | [Data]          | [Data]     | ✔️      | [Data]          | Utilizar Figma                               |
+| Lucas Gabriel Pimenta Moreira | Planejamento da arquitetura Backend              | [Data]          | [Data]     | ✔️      | [Data]          | Definir tecnologias e estrutura básica        |
+| Henrique Luiz Fontes da Silva | Planejamento da arquitetura Frontend             | [Data]          | [Data]     | ✔️      | [Data]          | Definir tecnologias e estrutura básica        |
+| Todos                          | Revisão da documentação do contexto             | [Data]          | [Data]     | ✔️      | [Data]          |                                                |
+| Todos                          | Planejamento de testes unitários e integrados    | [Data]          | [Data]     | 📝      |                  |                                                |
+
+
+**Sprint 2**
+
+Atualizado em: [Data]
+
+| Responsável                  | Tarefa/Requisito                               | Iniciado em    | Prazo      | Status  | Terminado em    | Observações                                   |
+|-------------------------------|-------------------------------------------------|-----------------|------------|---------|-----------------|------------------------------------------------|
+| Ricardo Alves Coelho          | Planejamento da Sprint 2                        | [Data]          | [Data]     | ✔️      | [Data]          |                                                |
+| Paulo Henrique Almeida Ferreira | Implementação dos protótipos                    | [Data]          | [Data]     | 📝      |                  | Testes com usuários                             |
+| Henrique Luiz Fontes da Silva | Implementação da interface Frontend            | [Data]          | [Data]     | 📝      |                  | Integrar com o Backend                        |
+| Lucas Gabriel Pimenta Moreira | Implementação da lógica Backend                 | [Data]          | [Data]     | 📝      |                  | Testes unitários                               |
+| Leonardo Leonhardt Bispo      | Implementação e execução dos testes             | [Data]          | [Data]     | 📝      |                  | Testes unitários e integrados                    |
+| Todos                          | Revisão e atualização da documentação            | [Data]          | [Data]     | 📝      |                  |                                                |
+
+
+**....**
+
+**Legenda:**
+
+* ✔️: Concluído
+* 📝: Em andamento
+* ⌛: Atrasado
+* ❌: Não iniciado
