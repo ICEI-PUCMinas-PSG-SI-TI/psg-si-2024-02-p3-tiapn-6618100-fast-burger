@@ -17,8 +17,11 @@
 
 ## Slides
 
-Coloque aqui os slides da apresentação
+Apresentação:
+>[Apresentacao-Fast-Burguer.pdf](https://github.com/user-attachments/files/18133915/Apresentacao-Fast-Burguer.pdf)
+
 
 ## Vídeo
 
-No caso de apresentação gravada, insira aqui o link do vídeo de apresentação.
+Consseitual:
+>
