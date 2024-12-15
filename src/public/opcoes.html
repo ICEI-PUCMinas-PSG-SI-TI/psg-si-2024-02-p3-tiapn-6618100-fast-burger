@@ -22,16 +22,26 @@
         <img src="assets/images/svg/Logo.svg" alt="" class="logo" />
         <nav class="main-nav">
           <div class="main-nav-buttons">
-            <button class="primary">Cardápio</button>
+            <a href="./insumos.html">
+              <button class="secondary">Insumos</button>
+            </a>
+            <a href="#">
+              <button class="primary">Cardápio</button>
+            </a>
+            <a href="./pagamentos.html">
+              <button class="secondary">Pagamentos</button>
+            </a>
           </div>
           <div class="main-nav-buttons">
-            <button class="primary">Mesa nº 01</button>
+            <a href="cadastrarOpcao.html">
+              <button class="secondary" id="btnCadastro">Cadastrar</button>
+            </a>
           </div>
         </nav>
       </header>
       <main>
         <div class="cards-container">
-          <div class="card" data-id="card" data-record="$id$">
+          <div class="card" data-id="card">
             <header class="card-header">
               <img src="$imagem$" alt="" />
               <h2>
@@ -52,56 +62,13 @@
             </header>
             <main class="card-main">$insumos$</main>
             <footer class="card-footer">
-              <div></div>
-              <div>
-                <button class="circle primary" onclick="diminuir('$id$')">
-                  -
-                </button>
-                <button class="circle primary" onclick="aumentar('$id$')">
-                  +
-                </button>
-                <span data-id="contador">$quantidade$</span>
-              </div>
+              <button class="circle primary" onclick="remover('$id$')">
+                <i class="bx bxs-trash"></i>
+              </button>
             </footer>
           </div>
         </div>
       </main>
-      <footer
-        style="
-          position: fixed;
-          width: 100%;
-          height: 80px;
-          bottom: 0;
-          left: 0;
-          background-color: #ffffff;
-          -webkit-box-shadow: 0px -10px 29px -15px rgba(0, 0, 0, 0.1);
-          -moz-box-shadow: 0px -10px 29px -15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px -10px 29px -15px rgba(0, 0, 0, 0.1);
-        "
-      >
-        <div
-          style="
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 20px;
-            z-index: 100;
-            padding: 0 10px;
-          "
-        >
-          <span id="valor" style="color: var(--bg-primary); font-size: 18px"
-            >R$ 0,00</span
-          >
-          <button class="primary">
-            <i class="bx bxs-cart-alt" style="margin-right: 5px"></i
-            ><span>Finalizar Pedido</span>
-          </button>
-        </div>
-      </footer>
       <div class="modal-wrapper" id="cadastro-insumo">
         <div class="modal">
           <header>
@@ -155,14 +122,11 @@
     const modalCarregamento = new Modal("loading");
 
     const dados = new Dados('[data-id="card"]');
-    let registros = [];
-    let valorTotal = 0;
 
     async function carregarDados() {
       modalCarregamento.abrir();
 
-      const { dados: _registros } = await api.get("cardapio");
-      registros = _registros;
+      const { dados: registros } = await api.get("cardapio");
 
       registros.forEach((dado) => {
         dado.insumos = dado.insumos.reduce(
@@ -170,8 +134,6 @@
             (acc += `<b>${nome}: </b><span>${quantidade}</span><br>`),
           ""
         );
-
-        dado.quantidade = 0;
 
         dado.valorFormatado = new Intl.NumberFormat("pt-BR", {
           style: "currency",
@@ -182,38 +144,6 @@
       dados.renderizar(registros);
 
       modalCarregamento.fechar();
-    }
-
-    function aumentar(_id) {
-      const contador = document
-        .querySelector(`[data-record="${_id}"]`)
-        .querySelector('[data-id="contador"]');
-      const registro = registros.find(({ id }) => id == _id);
-      const valorTexto = document.getElementById("valor");
-
-      registro.quantidade++;
-      contador.innerHTML = registro.quantidade;
-      valorTexto.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      }).format((valorTotal += Number(registro.valor)));
-    }
-
-    async function diminuir(_id) {
-      const contador = document
-        .querySelector(`[data-record="${_id}"]`)
-        .querySelector('[data-id="contador"]');
-      const registro = registros.find(({ id }) => id == _id);
-      const valorTexto = document.getElementById("valor");
-
-      if (!registro.quantidade) return;
-
-      valorTexto.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      }).format((valorTotal -= registro.valor));
-
-      contador.innerHTML = --registro.quantidade;
     }
 
     async function remover(id) {

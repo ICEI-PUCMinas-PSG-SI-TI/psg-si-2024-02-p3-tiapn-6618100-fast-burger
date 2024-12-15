@@ -10,4 +10,12 @@ const dbConf = {
 
 const db = pgp(dbConf);
 
+db.batch = function (sql, data) {
+  return new Promise((resolve, reject) => {
+    db.tx((t) => data.map((d) => t.none(sql, d)))
+      .then(() => resolve())
+      .catch((e) => reject(e));
+  });
+};
+
 module.exports = db;

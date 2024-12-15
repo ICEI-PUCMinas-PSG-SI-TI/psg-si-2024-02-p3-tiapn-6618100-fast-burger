@@ -22,6 +22,14 @@ html {
   background-color: var(--bg-color);
 }
 
+input[type="file"] {
+  padding-top: 3px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1200px;
@@ -118,9 +126,13 @@ button.circle {
   justify-content: space-between;
 }
 
+.card > * {
+  padding: 0 15px;
+}
+
 .card-header {
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: relative;
   text-align: center;
   overflow: visible;
@@ -128,8 +140,9 @@ button.circle {
   & img {
     position: relative;
     width: 150px;
+    height: 100px;
+    object-fit: contain;
     margin-top: -30px;
-    z-index: 1;
     margin-bottom: 10px;
   }
 
@@ -140,13 +153,20 @@ button.circle {
   }
 }
 
+.card-main {
+  width: 100%;
+  height: 50%;
+  color: var(--text-secondary-light);
+  font-size: 13px;
+  line-height: 15px;
+}
+
 .card-footer {
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: space-between;
   gap: 2px;
-  padding: 0 15px;
 
   & span {
     margin-left: 10px;

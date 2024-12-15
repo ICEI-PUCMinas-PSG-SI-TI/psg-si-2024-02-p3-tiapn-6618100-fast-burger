@@ -1,15 +1,15 @@
 const { Router } = require("express");
 const db = require("../db");
 
-const insumosRouter = Router();
+const router = Router();
 
-insumosRouter.get("/", (req, res) => {
+router.get("/", (req, res) => {
   db.any("SELECT * FROM insumo ORDER BY nome").then((data) => {
     res.send({ data });
   });
 });
 
-insumosRouter.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { nome, categoria, imagem } = req.body;
 
   const formdata = new FormData();
@@ -47,7 +47,7 @@ insumosRouter.post("/", async (req, res) => {
     });
 });
 
-insumosRouter.get("/:id/aumentar", (req, res) => {
+router.get("/:id/aumentar", (req, res) => {
   const { id } = req.params;
 
   db.none("UPDATE insumo SET quantidade = quantidade + 1 WHERE id = $1", [id])
@@ -60,7 +60,7 @@ insumosRouter.get("/:id/aumentar", (req, res) => {
     });
 });
 
-insumosRouter.get("/:id/diminuir", async (req, res) => {
+router.get("/:id/diminuir", async (req, res) => {
   const { id } = req.params;
 
   const { quantidade } = await db.one(
@@ -83,7 +83,7 @@ insumosRouter.get("/:id/diminuir", async (req, res) => {
     });
 });
 
-insumosRouter.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
 
   db.none("DELETE FROM insumo WHERE id = $1", [id])
@@ -96,4 +96,4 @@ insumosRouter.delete("/:id", (req, res) => {
     });
 });
 
-module.exports = insumosRouter;
+module.exports = router;

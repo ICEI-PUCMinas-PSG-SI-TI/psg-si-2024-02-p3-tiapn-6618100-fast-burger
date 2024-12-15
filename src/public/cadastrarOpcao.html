@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FastBurger | Controle de Insumos</title>
+    <title>FastBurger | Cadastrar Opção</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,32 +22,30 @@
         <img src="assets/images/svg/Logo.svg" alt="" class="logo" />
         <nav class="main-nav">
           <div class="main-nav-buttons">
-            <a href="#">
-              <button class="primary">Insumos</button>
+            <a href="./insumos.html">
+              <button class="secondary">Insumos</button>
             </a>
             <a href="./opcoes.html">
-              <button class="secondary">Cardápio</button>
+              <button class="primary">Cardápio</button>
             </a>
             <a href="./pagamentos.html">
               <button class="secondary">Pagamentos</button>
             </a>
           </div>
           <div class="main-nav-buttons">
-            <button class="secondary" id="btnCadastro">Cadastrar</button>
+            <button class="secondary" id="btnCadastro">Salvar Opção</button>
           </div>
         </nav>
       </header>
       <main>
         <div class="cards-container">
-          <div class="card d-none" data-id="card">
+          <div class="card" data-id="card" data-record="$id$">
             <header class="card-header">
               <img src="$imagem$" alt="" />
               <h2>$nome$</h2>
             </header>
             <footer class="card-footer">
-              <button class="circle primary" onclick="remover('$id$')">
-                <i class="bx bxs-trash"></i>
-              </button>
+              <div></div>
               <div>
                 <button class="circle primary" onclick="diminuir('$id$')">
                   -
@@ -55,7 +53,7 @@
                 <button class="circle primary" onclick="aumentar('$id$')">
                   +
                 </button>
-                <span>$quantidade$</span>
+                <span data-id="contador">$quantidade$</span>
               </div>
             </footer>
           </div>
@@ -64,7 +62,7 @@
       <div class="modal-wrapper" id="cadastro-insumo">
         <div class="modal">
           <header>
-            <h2>Cadastro de Insumo</h2>
+            <h2>Cadastro de Opção</h2>
           </header>
           <hr />
           <main>
@@ -74,16 +72,8 @@
                 <label for="nome">Nome</label>
               </div>
               <div class="input-wrapper">
-                <select name="categoria" required>
-                  <option value="" disabled selected>
-                    Selecione uma opção
-                  </option>
-                  <option value="Vegetais">Vegetais</option>
-                  <option value="Carnes">Carnes</option>
-                  <option value="Carnes">Pães</option>
-                  <option value="Carnes">Molhos</option>
-                </select>
-                <label for="categoria">Categoria</label>
+                <input type="number" name="valor" step=".01" />
+                <label for="valor">Valor</label>
               </div>
               <div class="input-wrapper">
                 <input type="file" name="imagem" required />
@@ -113,14 +103,17 @@
     const modalCadastroInsumo = new Modal("cadastro-insumo");
     const modalCarregamento = new Modal("loading");
 
-    const insumos = new Dados('[data-id="card"]');
+    const insumosDados = new Dados('[data-id="card"]');
+
+    let insumos = [];
 
     async function carregarInsumos() {
       modalCarregamento.abrir();
 
       const response = await api.get("insumos");
+      insumos = response.dados?.map((d) => ({ ...d, quantidade: 0 }));
 
-      if (response.status == 200) insumos.renderizar(response.dados);
+      if (response.status == 200) insumosDados.renderizar(insumos);
 
       modalCarregamento.fechar();
     }
@@ -137,12 +130,12 @@
 
       modalCarregamento.abrir();
 
-      const response = await api.post("insumos", dados);
+      const response = await api.post("cardapio", {
+        ...dados,
+        insumos: insumos.filter((i) => i.quantidade),
+      });
 
-      await carregarInsumos();
-
-      modalCadastroInsumo.limparFormulario();
-      modalCadastroInsumo.fechar();
+      window.location.href = "./opcoes.html";
     });
 
     async function remover(id) {
@@ -155,24 +148,24 @@
       carregarInsumos();
     }
 
-    async function aumentar(id) {
-      modalCarregamento.abrir();
+    function aumentar(_id) {
+      const contador = document
+        .querySelector(`[data-record="${_id}"]`)
+        .querySelector('[data-id="contador"]');
+      const insumo = insumos.find(({ id }) => id == _id);
 
-      const response = await api.get("insumos/" + id + "/aumentar");
-
-      modalCarregamento.fechar();
-
-      carregarInsumos();
+      insumo.quantidade++;
+      contador.innerHTML = insumo.quantidade;
     }
 
-    async function diminuir(id) {
-      modalCarregamento.abrir();
+    async function diminuir(_id) {
+      const contador = document
+        .querySelector(`[data-record="${_id}"]`)
+        .querySelector('[data-id="contador"]');
+      const insumo = insumos.find(({ id }) => id == _id);
 
-      const response = await api.get("insumos/" + id + "/diminuir");
-
-      modalCarregamento.fechar();
-
-      carregarInsumos();
+      insumo.quantidade = Math.max(--insumo.quantidade, 0);
+      contador.innerHTML = insumo.quantidade;
     }
 
     document.getElementById("btnCadastro").addEventListener("click", () => {

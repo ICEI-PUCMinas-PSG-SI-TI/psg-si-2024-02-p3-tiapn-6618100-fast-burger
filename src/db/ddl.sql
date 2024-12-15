@@ -31,19 +31,22 @@ CREATE TABLE insumo (
 	CONSTRAINT insumo_pk PRIMARY KEY (id)
 );
 
-CREATE TABLE pedido_cardapio (
+CREATE TABLE public.pedido_cardapio (
 	id_pedido int4 NOT NULL,
 	id_cardapio int4 NOT NULL,
 	valor numeric NOT NULL,
-	quantidade smallint NOT NULL,
-	CONSTRAINT pedido_cardapio_pk PRIMARY KEY (id_pedido, id_cardapio)
+	quantidade int2 NOT NULL,
+	CONSTRAINT pedido_cardapio_pk PRIMARY KEY (id_pedido, id_cardapio),
+	CONSTRAINT cardapio_fk FOREIGN KEY (id_cardapio) REFERENCES public.cardapio(id) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT pedido_fk FOREIGN KEY (id_pedido) REFERENCES public.pedido(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE opcao_insumo (
+CREATE TABLE public.opcao_insumo (
 	id_cardapio int4 NOT NULL,
 	id_insumo int4 NOT NULL,
-	quantidade smallint NULL,
-	CONSTRAINT opcao_insumo_pk PRIMARY KEY (id_cardapio, id_insumo)
+	quantidade int2 NULL,
+	CONSTRAINT opcao_insumo_pk PRIMARY KEY (id_cardapio, id_insumo),
+	CONSTRAINT cardapio_fk FOREIGN KEY (id_cardapio) REFERENCES public.cardapio(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT insumo_fk FOREIGN KEY (id_insumo) REFERENCES public.insumo(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 
