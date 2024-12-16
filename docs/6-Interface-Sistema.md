@@ -14,7 +14,9 @@ A tela principal do sistema FastBurger apresenta uma interface limpa e intuitiva
 * **Rodapé:**  Contém informações de contato e copyright.
 
 
-[`Tela principal do sistema`]![alt text](./images/images-modelagem/tela-de-inicio.png)
+[`Tela principal do sistema`]
+
+![alt text](./images/images-modelagem/tela-de-inicio.png)
 
 
 ## 6.2. Telas do Processo de Realização de Pedido (Cliente)
@@ -23,14 +25,18 @@ A tela principal do sistema FastBurger apresenta uma interface limpa e intuitiva
 
 Esta tela apresenta o cardápio de forma organizada por categorias (Hambúrgueres, Bebidas, Acompanhamentos). Cada item do cardápio exibe uma imagem, o nome, a descrição e o preço.  Botões "+" e "-" permitem ajustar a quantidade desejada de cada item. Um botão "Adicionar ao Pedido" adiciona o item ao carrinho.
 
-[`Tela do Cardápio`]![alt text](./images/images-modelagem/cardapio.png)
+[`Tela do Cardápio`]
+
+![alt text](./images/images-modelagem/cardapio.png)
 
 
 **6.2.2. Tela de Pagamento:**
 
 Oferece opções de pagamento (cartão de crédito/débito ou dinheiro).  No caso de pagamento com cartão, integra-se com uma gateway de pagamento (exemplo: Stripe ou PagSeguro).  Após o pagamento, exibe uma mensagem de confirmação do pedido.
 
-[`Tela de Pagamento`]![alt text](./images/images-modelagem/pagamento.png)
+[`Tela de Pagamento`]
+
+![alt text](./images/images-modelagem/pagamento.png)
 
 
 
@@ -40,7 +46,9 @@ Oferece opções de pagamento (cartão de crédito/débito ou dinheiro).  No cas
 
 Apresenta uma lista de todos os insumos em estoque, com seus respectivos nomes, quantidades e um campo para solicitar reposição.  Permite pesquisar por insumo e filtrar os resultados.
 
-[`Tela de Estoque`]![alt text](./images/images-modelagem/controle-de-insumos.png)
+[`Tela de Estoque`]
+
+![alt text](./images/images-modelagem/controle-de-insumos.png)
 
 **6.3.2. Tela de Criação de Produtos:**
 
