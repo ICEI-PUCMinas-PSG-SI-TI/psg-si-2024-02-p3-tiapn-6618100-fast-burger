@@ -1,6 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="1-Contexto.md"> Documentação de Contexto</a></span>
 # Especificações do Projeto
 
 Este documento detalha as especificações do projeto FastBurger, incluindo personas, histórias de usuário, requisitos funcionais e não funcionais, e restrições.  Para a elicitação de requisitos, foram utilizadas as técnicas de Personas, Histórias de Usuário e priorização MoSCoW.
