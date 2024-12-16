@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastBurger | Controle de Pagamentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/global.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="main-header">
+        <img src="assets/images/svg/Logo.svg" alt="" class="logo" />
+        <nav class="main-nav">
+          <div class="main-nav-buttons">
+            <a href="./insumos.html">
+              <button class="secondary">Insumos</button>
+            </a>
+            <a href="./opcoes.html">
+              <button class="secondary">Cardápio</button>
+            </a>
+            <a href="./pagamentos.html">
+              <button class="primary">Pagamentos</button>
+            </a>
+          </div>
+          <div class="main-nav-buttons">
+            <a href="cadastrarOpcao.html">
+              <button class="secondary" id="btnCadastro">Cadastrar</button>
+            </a>
+          </div>
+        </nav>
+      </header>
+      <main style="height: calc(100% - 141px)">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            height: calc(100% - 10%);
+            background-color: white;
+            padding: 15px;
+            border-radius: 7px;
+            -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.02);
+            -moz-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.02);
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.02);
+          "
+        >
+          <div
+            data-id="pedido"
+            class="d-none"
+            style="
+              width: 100%;
+              height: 40px;
+              background-color: var(--bg-color);
+              border-radius: 14px;
+              display: flex;
+              justify-content: space-between;
+              padding: 0 20px;
+              align-items: center;
+            "
+          >
+            <div style="display: flex; gap: 10px">
+              <h3
+                style="
+                  color: var(--text-secondary-light);
+                  font-weight: 600;
+                  font-size: 16px;
+                "
+              >
+                Pedido: <span>$numero$</span>
+              </h3>
+              <span style="color: var(--text-secondary)">|</span>
+              <h3
+                style="
+                  color: var(--text-secondary-light);
+                  font-weight: 600;
+                  font-size: 16px;
+                "
+              >
+                Mesa: <span>$mesa$</span>
+              </h3>
+              <span style="color: var(--text-secondary)">|</span>
+              <h3
+                style="
+                  color: var(--text-secondary-light);
+                  font-weight: 600;
+                  font-size: 16px;
+                "
+              >
+                Data: <span>$data_hora$</span>
+              </h3>
+            </div>
+            <div style="display: flex; gap: 10px">
+              <h3
+                style="
+                  color: var(--bg-primary);
+                  font-weight: 600;
+                  font-size: 16px;
+                "
+              >
+                $valor_formatado$
+              </h3>
+              <span style="color: var(--text-secondary)">|</span>
+              <button
+                class="primary"
+                style="
+                  height: 25px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  display: $displayBotao$;
+                  align-items: center;
+                "
+                onclick="pagar($id$)"
+              >
+                <i class="bx bxs-wallet"></i>
+                Finalizar pagamento
+              </button>
+              <span
+                style="
+                  color: green;
+                  display: $displayPago$;
+                  font-size: 14px;
+                  text-align: left;
+                  vertical-align: middle;
+                  min-width: 194px;
+                "
+                >$textoPago$</span
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="modal-wrapper" id="modal-pagamento">
+        <div class="modal">
+          <header>
+            <h2>Realizar Pagamento</h2>
+          </header>
+          <hr />
+          <main>
+            <form id="cadastroInsumo" autocomplete="off">
+              <div class="input-wrapper">
+                <select name="forma_pagamento" required>
+                  <option value="" disabled selected>
+                    Selecione uma opção
+                  </option>
+                  <option value="Pix">Pix</option>
+                  <option value="Cartão de Crédito">Cartão de Crédito</option>
+                  <option value="Cartão de Débito">Cartão de Débito</option>
+                  <option value="Dinheiro">Dinheiro</option>
+                </select>
+                <label for="categoria">Forma de Pagamento</label>
+              </div>
+            </form>
+          </main>
+          <hr />
+          <footer>
+            <div style="margin-left: auto">
+              <button class="secondary" data-button="close">Fechar</button>
+              <button class="primary" form="cadastroInsumo">Salvar</button>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="modal-wrapper" id="loading">
+        <div class="loading"></div>
+      </div>
+    </div>
+  </body>
+  <script src="assets/js/utils/api.js"></script>
+  <script src="assets/js/components/Dados.js"></script>
+  <script src="assets/js/components/Modal.js"></script>
+  <script src="assets/js/utils/helpers.js"></script>
+  <script>
+    const modalPagamento = new Modal("modal-pagamento");
+    const modalCarregamento = new Modal("loading");
+
+    const dados = new Dados('[data-id="pedido"]');
+
+    async function carregarDados() {
+      modalCarregamento.abrir();
+
+      const { dados: registros } = await api.get("pedido");
+
+      registros.forEach((dado) => {
+        console.log(dado);
+
+        dado.numero = dado.id.toString().padStart(4, "0");
+        dado.mesa = dado.mesa.toString().padStart(2, "0");
+        dado.displayBotao =
+          dado.status == "Aguardando Pagamento" ? "flex" : "none";
+        dado.displayPago = dado.status == "Pago" ? "block" : "none";
+        dado.textoPago = "Pago por " + dado.forma_pagamento;
+        dado.data_hora = new Intl.DateTimeFormat("pt-BR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+        }).format(new Date(dado.data_hora));
+        dado.valor_formatado = new Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(dado.valor_total);
+      });
+
+      dados.renderizar(registros);
+
+      modalCarregamento.fechar();
+    }
+
+    async function pagar(id) {
+      modalPagamento.onFormularioSubmit(async (form) => {
+        const formdata = new FormData(form);
+        const dados = Object.fromEntries(formdata);
+
+        modalCarregamento.abrir();
+
+        const response = await api.post(`pedido/${id}/pagar`, {
+          ...dados,
+        });
+
+        modalPagamento.fechar();
+
+        carregarDados();
+      });
+
+      modalPagamento.abrir();
+    }
+
+    carregarDados();
+  </script>
+</html>

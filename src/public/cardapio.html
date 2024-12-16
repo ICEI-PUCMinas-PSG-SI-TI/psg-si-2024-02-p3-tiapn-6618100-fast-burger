@@ -25,7 +25,9 @@
             <button class="primary">Cardápio</button>
           </div>
           <div class="main-nav-buttons">
-            <button class="primary">Mesa nº 01</button>
+            <button class="primary">
+              Mesa nº <span id="numero-mesa"></span>
+            </button>
           </div>
         </nav>
       </header>
@@ -96,7 +98,7 @@
           <span id="valor" style="color: var(--bg-primary); font-size: 18px"
             >R$ 0,00</span
           >
-          <button class="primary">
+          <button class="primary" id="finalizar">
             <i class="bx bxs-cart-alt" style="margin-right: 5px"></i
             ><span>Finalizar Pedido</span>
           </button>
@@ -155,8 +157,13 @@
     const modalCarregamento = new Modal("loading");
 
     const dados = new Dados('[data-id="card"]');
+    const mesa = new URL(window.location.href).searchParams.get("mesa");
     let registros = [];
     let valorTotal = 0;
+
+    if (!mesa) alert("Mesa não especificada");
+
+    document.getElementById("numero-mesa").innerText = mesa.padStart(2, "0");
 
     async function carregarDados() {
       modalCarregamento.abrir();
@@ -216,15 +223,31 @@
       contador.innerHTML = --registro.quantidade;
     }
 
-    async function remover(id) {
+    async function finalizarPedido() {
+      if (registros.every((r) => r.quantidade == 0)) {
+        alert("Adicione pelo menos uma opção no pedido.");
+        return;
+      }
+
       modalCarregamento.abrir();
 
-      const response = await api.delete("cardapio/" + id);
+      await api.post("pedido", {
+        mesa: mesa,
+        opcoes: registros
+          .filter((r) => r.quantidade > 0)
+          .map(({ id: opcao, quantidade, valor }) => ({
+            opcao,
+            quantidade,
+            valor,
+          })),
+      });
 
-      modalCarregamento.fechar();
-
-      carregarDados();
+      window.location.href = "pagamentos.html";
     }
+
+    document
+      .getElementById("finalizar")
+      .addEventListener("click", finalizarPedido);
 
     carregarDados();
   </script>

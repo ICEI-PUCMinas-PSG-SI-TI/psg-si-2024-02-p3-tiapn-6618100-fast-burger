@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 const router = express.Router();
 const insumosRouter = require("./routes/insumosRouter");
 const cardapioRouter = require("./routes/cardapioRouter");
+const pedidoRouter = require("./routes/pedidoRouter");
 
 app.use(cors());
 app.use(express.static("public"));
@@ -17,6 +18,7 @@ app.use(express.json({ limit: "50mb" }));
 
 router.use("/insumos", insumosRouter);
 router.use("/cardapio", cardapioRouter);
+router.use("/pedido", pedidoRouter);
 
 app.use("/api", router);
 
