@@ -30,7 +30,6 @@ A modelagem AS-IS do FastBurger descreve os processos manuais e ineficientes de 
 1. **Atualizações manuais:**  Mudanças no cardápio são feitas manualmente, envolvendo impressão de novos cardápios e substituição dos antigos.  Há alto risco de inconsistências entre os cardápios impressos e os disponíveis para os garçons.
 
 
-*(Diagramas BPMN AS-IS seriam inseridos aqui para cada processo descrito acima, mostrando visualmente o fluxo de trabalho atual.)*
 
 
 ### 3.2. Descrição geral da proposta (Modelagem TO BE)
@@ -51,15 +50,19 @@ A proposta de solução FastBurger visa integrar os processos através de uma pl
 
 
 **Realização de pedido**
+
 ![alt text](./images/images-modelagem/image-2.png)
 
 **Gestão de Pagamentos**
+
 ![alt text](./images/images-modelagem/image-3.png)
 
 **Gestão de Cardápios**
+
 ![alt text](./images/images-modelagem/image-4.png)
 
 **Controle de Estoque de Insumos**
+
 ![alt text](./images/images-modelagem/image-5.png)
 
 ### 3.3. Modelagem dos processos
