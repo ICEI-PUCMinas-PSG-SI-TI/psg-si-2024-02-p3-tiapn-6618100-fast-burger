@@ -39,9 +39,9 @@ Necessário: NodeJS e PostgreSQL.
 <ol>
 <li><a href="docs/1-Contexto.md"> Documentação de Contexto</a></li>
 <li><a href="docs/2-Especificação.md"> Especificação do Projeto</a></li>
-<li><a href="docs/3-Modelagem-Processos-Negócio.md"> Modelagem dos Processos de Negocio</a></li>
+<li><a href="docs/3-Modelagem-do-Processo-de-Negocio.md"> Modelagem dos Processos de Negocio</a></li>
 <li><a href="docs/4-Projeto-Solucao.md"> Projeto da solução</a></li>
-<li><a href="docs/5-Gerenciamento-Projeto.md"> Gerenciamento do Projeto</a></li>
+<li><a href="docs/5-Planejamento-Projeto.md"> Gerenciamento do Projeto</a></li>
 <li><a href="docs/6-Interface-Sistema.md"> Interface do Sistema</a></li>
 <li><a href="docs/7-Conclusão.md"> Conclusão</a></li>
 <li><a href="docs/8-Referências.md"> Referências</a></li>
@@ -53,7 +53,7 @@ Necessário: NodeJS e PostgreSQL.
 
 # Apresentação
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+<li><a href="./docs/apresentacao/README.md"> Apresentação da solução</a></li>
 
 
 ## Histórico de versões
