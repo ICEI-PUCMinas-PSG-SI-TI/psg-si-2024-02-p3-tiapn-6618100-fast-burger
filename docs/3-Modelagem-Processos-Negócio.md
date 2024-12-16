@@ -75,4 +75,3 @@ A proposta de solução FastBurger visa integrar os processos através de uma pl
 
 [PROCESSO 4 - Gestão de Pagamentos](./processos/processo-4-gestao-pagamentos.md "Detalhamento do Processo de Gestão de Pagamentos.")
 
-*(Os links acima levariam para documentos markdown detalhando cada processo com os diagramas BPMN AS-IS e TO-BE.)*
